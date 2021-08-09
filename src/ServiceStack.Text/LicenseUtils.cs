@@ -149,7 +149,7 @@ namespace ServiceStack
             public const int ServiceStackOperations = 10;
             public const int TypeFields = 20;
             public const int RedisTypes = 20;
-            public const int RedisRequestPerHour = 6000;
+            public const int RedisRequestPerHour = int.MaxValue;
             public const int OrmLiteTables = 10;
             public const int AwsTables = 10;
             public const int PremiumFeature = 0;
@@ -264,7 +264,7 @@ namespace ServiceStack
         public static void AssertValidUsage(LicenseFeature feature, QuotaType quotaType, int count)
         {
             var licensedFeatures = ActivatedLicenseFeatures();
-            if ((LicenseFeature.All & licensedFeatures) == LicenseFeature.All) //Standard Usage
+            //if ((LicenseFeature.All & licensedFeatures) == LicenseFeature.All) //Standard Usage
                 return;
 
             //Free Quotas
